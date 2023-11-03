@@ -50,6 +50,7 @@ func main() {
 		})
 	})
 	r.GET("/reload", func(c *gin.Context) {
+		segmenter.Close()
 		segmenter.LoadDictionary(*dict)
 		c.JSON(200, gin.H{
 			"message": "pong",
